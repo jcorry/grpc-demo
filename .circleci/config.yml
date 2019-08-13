@@ -10,9 +10,6 @@ jobs:
     steps:
       - checkout
       - golang/install-protoc
-orbs:
-  golang: moorara/golang@0.0.0
-version: 2.1
 workflows:
   build:
     jobs:
