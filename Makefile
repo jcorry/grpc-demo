@@ -5,6 +5,8 @@ PROTOC_GEN_GO := $(GOPATH)/bin/protoc-gen-go
 # it.
 $(PROTOC_GEN_GO):
 	go get -u github.com/golang/protobuf/protoc-gen-go
+	go get -u github.com/gogo/protobuf/gogoproto
+	go get -u github.com/mwitkow/go-proto-validators
 
 dep:
 	go get -u github.com/gogo/protobuf@master
