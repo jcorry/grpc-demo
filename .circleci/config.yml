@@ -5,7 +5,7 @@ jobs:
     steps:
       - run: protoc --version
 orbs:
-  protobuf: izumin5210/protobuf@0.0.1
+  protobuf: izumin5210/protobuf
 version: 2.1
 workflows:
   dep:
