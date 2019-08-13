@@ -12,7 +12,7 @@ dep:
 
 grpc-demo.pb.go: ./protoc/grpc-demo.proto | $(PROTOC_GEN_GO)
 	protoc -I ./protoc \
-		-I$(GOPATH)/src \
+		-I $(GOPATH)/src \
 		-I $(PROTOBUF_PATH) \
 		./protoc/*.proto --go_out=./protoc/,plugins=grpc:./protoc/
 
