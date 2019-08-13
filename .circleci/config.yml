@@ -1,3 +1,4 @@
+version: 2.1
 jobs:
   protoc:
     docker:
@@ -6,7 +7,6 @@ jobs:
       - run: protoc --version
 orbs:
   protobuf: izumin5210/protobuf
-version: 2.1
 workflows:
   dep:
     jobs:
