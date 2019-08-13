@@ -1,12 +1,12 @@
+version: 2.1
+orbs:
+  protobuf: izumin5210/protobuf@0.1.0
 jobs:
   protoc:
     docker:
       - image: circleci/golang
     steps:
       - run: protoc --version
-orbs:
-  protobuf: izumin5210/protobuf@0.1.0
-version: 2.1
 workflows:
   build:
     jobs:
