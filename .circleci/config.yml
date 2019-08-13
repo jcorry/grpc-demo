@@ -8,8 +8,8 @@ jobs:
       dockerhub_username: $DOCKERHUB_USERNAME
       name: golang/golang
     steps:
-      - checkout
       - golang/install-protoc
+      - checkout
       - run:
           name: PWD
           command: |
