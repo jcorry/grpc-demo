@@ -1,14 +1,20 @@
 version: 2.1
 orbs:
-  protobuf: izumin5210/protobuf@0.1.0
+  golang: moorara/golang@0.2.1
 jobs:
-  protoc:
-    docker:
-      - image: circleci/golang
+  build:
+    executor:
+      dockerhub_password: $DOCKERHUB_PASSWORD
+      dockerhub_username: $DOCKERHUB_USERNAME
+      name: golang/golang
     steps:
-      - run: protoc --version
+      - checkout
+      - golang/install-protoc
+orbs:
+  golang: moorara/golang@0.0.0
+version: 2.1
 workflows:
   build:
     jobs:
-      - protobuf/install
-      - protoc
+      - build
+
