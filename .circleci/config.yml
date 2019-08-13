@@ -10,13 +10,7 @@ jobs:
     steps:
       - checkout
       - golang/install-protoc
-workflows:
-  build:
-    jobs:
-      - build
-  compile:
-    - run:
-      name: Compile protos
-      command: |
-        make compile
-
+      - run:
+          name: Compile protos
+          command: |
+            make compile
