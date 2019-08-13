@@ -11,6 +11,10 @@ jobs:
       - checkout
       - golang/install-protoc
       - run:
+          name: PWD
+          command: |
+            ls -la
+      - run:
           name: Compile protos
           command: |
             make compile
