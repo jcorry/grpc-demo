@@ -15,5 +15,8 @@ workflows:
     jobs:
       - build
   compile:
-    - run: make compile
+    - run:
+      name: Compile protos
+      command: |
+        make compile
 
