@@ -13,6 +13,8 @@ grpc-demo.pb.go: ./protoc/grpc-demo.proto | $(PROTOC_GEN_GO)
 	protoc -I ./protoc \
 		-I $(GOPATH)/src \
 		-I $(shell go list -f '{{ .Dir }}' -m github.com/golang/protobuf) \
+		-I $(shell go list -f '{{ .Dir }}' -m github.com/gogo/protobuf/gogoproto) \
+		-I $(shell go list -f '{{ .Dir }}' -m github.com/mwitkow/go-proto-validators) \
 		./protoc/*.proto --go_out=./protoc/,plugins=grpc:./protoc/
 
 # This is a "phony" target - an alias for the above command, so "make compile"
