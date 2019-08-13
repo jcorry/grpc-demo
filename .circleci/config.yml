@@ -4,4 +4,5 @@ machine:
 
 dependencies:
   pre:
-    - go get github.com/tools/godep
+    - make compile
+    - go mod tidy
