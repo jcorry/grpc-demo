@@ -10,7 +10,10 @@ jobs:
     steps:
       - golang/install-protoc
       - checkout
-      - go mod tidy
+      - run:
+          name: mod tidy
+          command: |
+            go mod tidy
       - run:
           name: PWD
           command: |
