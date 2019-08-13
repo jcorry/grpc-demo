@@ -8,7 +8,7 @@ orbs:
   protobuf: izumin5210/protobuf@0.1.0
 version: 2.1
 workflows:
-  dep:
+  build:
     jobs:
       - protobuf/install
       - protoc
