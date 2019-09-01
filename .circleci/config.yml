@@ -19,6 +19,10 @@ jobs:
           command: |
             ls -la
       - run:
+          name: Get deps
+          command: |
+            make dep
+      - run:
           name: Compile protos
           command: |
             make compile
