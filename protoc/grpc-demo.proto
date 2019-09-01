@@ -2,9 +2,9 @@ syntax = "proto3";
 
 package grpc_demo;
 
-import "google/protobuf/empty.proto";
-import "github.com/gogo/protobuf/gogoproto/gogo.proto";
-import "github.com/mwitkow/go-proto-validators/validator.proto";
+import "ptypes/empty/empty.proto";
+import "gogoproto/gogo.proto";
+import "validator.proto";
 /*
 import "google/protobuf/timestamp.proto";
 */
