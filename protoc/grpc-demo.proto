@@ -1,0 +1,63 @@
+syntax = "proto3";
+
+package grpc_demo;
+
+import "ptypes/empty/empty.proto";
+import "gogoproto/gogo.proto";
+import "validator.proto";
+/*
+import "google/protobuf/timestamp.proto";
+*/
+
+option go_package = "protoc";
+option (gogoproto.sizer_all) = true;
+option (gogoproto.marshaler_all) = true;
+option (gogoproto.unmarshaler_all) = true;
+option (gogoproto.populate_all) = true;
+option (gogoproto.equal_all) = true;
+option (gogoproto.verbose_equal_all) = true;
+option (gogoproto.goproto_stringer_all) = true;
+
+service PhotoService {
+    rpc Upload(stream FileUpload) returns (UploadStatus) {}
+    rpc Read(FileIdentifier) returns (Photo) {}
+    rpc List(google.protobuf.Empty) returns (FileIdentifierList) {}
+}
+
+message FileUpload {
+    oneof file_upload {
+        FileMeta metadata = 2;
+        bytes content = 1;
+    }
+}
+
+message FileMeta {
+    string filename = 2;
+    string extension = 3;
+}
+
+enum UploadStatusCode {
+    Unknown = 0;
+    Ok = 1;
+    Failed = 2;
+}
+
+message UploadStatus {
+    string message = 1;
+    UploadStatusCode code = 2;
+}
+
+message FileIdentifier {
+    string id = 1;
+}
+
+message FileIdentifierList {
+    repeated FileIdentifier list = 1;
+}
+
+message Photo {
+    string id = 1;
+    string cloudinaryURL = 2;
+    map<string, string> exif = 3;
+    bytes bytes = 4;
+}

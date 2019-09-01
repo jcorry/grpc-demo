@@ -1,0 +1,28 @@
+version: 2.1
+orbs:
+  golang: moorara/golang@0.2.1
+jobs:
+  build:
+    executor:
+      dockerhub_password: $DOCKERHUB_PASSWORD
+      dockerhub_username: $DOCKERHUB_USERNAME
+      name: golang/golang
+    steps:
+      - golang/install-protoc
+      - checkout
+      - run:
+          name: mod tidy
+          command: |
+            go mod tidy
+      - run:
+          name: PWD
+          command: |
+            ls -la
+      - run:
+          name: Get deps
+          command: |
+            make dep
+      - run:
+          name: Compile protos
+          command: |
+            make compile
