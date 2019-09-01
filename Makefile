@@ -10,6 +10,8 @@ $(PROTOC_GEN_GO):
 
 dep:
 	go get -u github.com/gogo/protobuf@master
+	go get -u github.com/gogo/protobuf
+	go get -u github.com/mwitkow/go-proto-validators
 
 grpc-demo.pb.go: ./protoc/grpc-demo.proto | $(PROTOC_GEN_GO)
 	protoc -I ./protoc \
