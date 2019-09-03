@@ -12,6 +12,7 @@ dep:
 	go get -u github.com/golang/protobuf
 	go get -u github.com/gogo/protobuf@master
 	go get -u github.com/mwitkow/go-proto-validators
+	go get -u github.com/mwitkow/go-proto-validators/protoc-gen-govalidators
 
 grpc-demo.pb.go: ./protoc/grpc-demo.proto | $(PROTOC_GEN_GO)
 	protoc -I ./protoc \
@@ -20,7 +21,7 @@ grpc-demo.pb.go: ./protoc/grpc-demo.proto | $(PROTOC_GEN_GO)
 		-I $(GOGO_PATH) \
 		-I $(GOGO_PATH)/protobuf \
 		-I $(VALIDATORS_PATH) \
-		./protoc/*.proto --go_out=./protoc/,plugins=grpc:./protoc/
+		./protoc/*.proto --go_out=./protoc/,plugins=grpc:./protoc/ --govalidators_out=./protoc/
 
 # This is a "phony" target - an alias for the above command, so "make compile"
 # still works.
