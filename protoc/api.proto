@@ -9,7 +9,7 @@ import "validator.proto";
 import "google/protobuf/timestamp.proto";
 */
 
-option go_package = "protoc";
+option go_package = "api";
 option (gogoproto.sizer_all) = true;
 option (gogoproto.marshaler_all) = true;
 option (gogoproto.unmarshaler_all) = true;
