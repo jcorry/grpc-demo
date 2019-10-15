@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-package grpc_demo;
+package api;
 
 import "ptypes/empty/empty.proto";
 import "gogoproto/gogo.proto";

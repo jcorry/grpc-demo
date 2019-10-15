@@ -14,15 +14,15 @@ dep:
 	go get -u github.com/mwitkow/go-proto-validators
 	go get -u github.com/mwitkow/go-proto-validators/protoc-gen-govalidators
 
-grpc-demo.pb.go: ./protoc/grpc-demo.proto | $(PROTOC_GEN_GO)
+api.pb.go: ./protoc/api.proto | $(PROTOC_GEN_GO)
 	protoc -I ./protoc \
 		-I $(GOPATH)/src \
 		-I $(PROTOBUF_PATH) \
 		-I $(GOGO_PATH) \
 		-I $(GOGO_PATH)/protobuf \
 		-I $(VALIDATORS_PATH) \
-		./protoc/*.proto --go_out=./protoc/,plugins=grpc:./protoc/ --govalidators_out=./protoc/
+		./protoc/*.proto --go_out=plugins=grpc:api --govalidators_out=./api/
 
 # This is a "phony" target - an alias for the above command, so "make compile"
 # still works.
-compile: grpc-demo.pb.go
+compile: api.pb.go
